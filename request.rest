@@ -1,0 +1,113 @@
+// Create a user 
+POST http://localhost:5000/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "name" : "nabila",
+  "email" : "user@gmail.com",
+  "password" : "123456",
+  "confPassword":"123456",
+  "levelId" : "2"
+}
+
+
+###
+// Get a user by id
+GET http://localhost:5000/users/859b300a-c6e6-4061-8096-6abd0cb5f94e HTTP/1.1
+content-type: application/json
+
+
+###
+// Get all users
+GET http://localhost:5000/users HTTP/1.1
+content-type: application/json
+
+
+
+###
+// Update a users
+PATCH  http://localhost:5000/users/e871fbe8-0fbe-417e-aa9a-c8207b373e49 HTTP/1.1
+content-type: application/json
+
+{
+  "name" : "indra",
+  "email" : "admin@gmail.com",
+  "password" : "",
+  "confPassword":"",
+  "role":"admin"
+}
+###
+// Delete a users
+DELETE http://localhost:5000/users/e871fbe8-0fbe-417e-aa9a-c8207b373e49  HTTP/1.1
+content-type: application/json
+
+###
+// login User
+POST http://localhost:5000/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email" : "admin@gmail.com",
+  "password" : "123456"
+}
+
+###
+// logout User
+DELETE  http://localhost:5000/logOut HTTP/1.1
+Content-Type: application/json
+
+
+###
+POST http://localhost:5000/products HTTP/1.1
+Content-Type: application/json
+
+{
+  "name" : "buah",
+  "price" : "3000"
+}
+
+###
+// Get me
+GET http://localhost:5000/me HTTP/1.1
+content-type: application/json
+
+###
+// Get me
+GET http://localhost:5000/products HTTP/1.1
+content-type: application/json
+
+
+###
+// Create a level
+POST http://localhost:5000/level HTTP/1.1
+Content-Type: application/json
+
+{
+  "level":"user"
+}
+
+###
+// get a level
+GET http://localhost:5000/level HTTP/1.1
+Content-Type: application/json
+
+###
+// get a level by id
+GET http://localhost:5000/level/1 HTTP/1.1
+Content-Type: application/json
+
+
+###
+// update a level
+PATCH  http://localhost:5000/level/1 HTTP/1.1
+Content-Type: application/json
+
+{
+  "level":"admin"
+}
+
+###
+// update a level
+DELETE http://localhost:5000/level/2 HTTP/1.1
+Content-Type: application/json
+
