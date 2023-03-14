@@ -9,6 +9,8 @@ import ProductRoute from "./routes/ProductRoute.js";
 import CobaRoute from "./routes/CobaRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
 import LevelRoute from "./routes/LevelRoute.js";
+import ProjectRoute from "./routes/ProjectRoute.js";
+import AchieveRoute from "./routes/AchieveRoute.js";
 import FileUpload from "express-fileupload";
 dotenv.config();
 
@@ -42,10 +44,15 @@ app.use(AuthRoute);
 app.use(LevelRoute);
 
 
+
 app.use(FileUpload());
 app.use(express.static("public"));
 app.use(ProductRoute);
 app.use(CobaRoute);
+app.use(ProjectRoute);
+app.use(AchieveRoute);
+
+
 
 
 
