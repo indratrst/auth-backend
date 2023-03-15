@@ -39,7 +39,7 @@ export const createAchieve = (req, res)=>{
     if(!allowedType.includes(ext.toLowerCase())) return res.status(422).json({msg: "Invalid Images"});
     if(fileSize > 5000000) return res.status(422).json({msg: "Image must be less than 5 MB"});
 
-    file.mv(`./public/images/${fileName}`, async(err)=>{
+    file.mv(`public/images/${fileName}`, async(err)=>{
         if(err) return res.status(500).json({msg: err.message});
         try {
             await Achieve.create({title: title,description:description, image: fileName, url: url,link: link});
@@ -72,10 +72,10 @@ export const updateAchieve = async(req, res)=>{
         if(!allowedType.includes(ext.toLowerCase())) return res.status(422).json({msg: "Invalid Images"});
         if(fileSize > 5000000) return res.status(422).json({msg: "Image must be less than 5 MB"});
 
-        const filepath = `./public/images/${achieve.image}`;
+        const filepath = `public/images/${achieve.image}`;
         fs.unlinkSync(filepath);
 
-        file.mv(`./public/images/${fileName}`, (err)=>{
+        file.mv(`public/images/${fileName}`, (err)=>{
             if(err) return res.status(500).json({msg: err.message});
         });
     }
@@ -106,7 +106,7 @@ export const deleteAchieve = async(req, res)=>{
     if(!achieve) return res.status(404).json({msg: "No Data Found"});
 
     try {
-        const filepath = `./public/images/${achieve.image}`;
+        const filepath = `public/images/${achieve.image}`;
         fs.unlinkSync(filepath);
         await Achieve.destroy({
             where:{
